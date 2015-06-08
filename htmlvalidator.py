@@ -1,6 +1,6 @@
 import codecs
 import re
-from stack.Stack import Stack
+from datastucture.stack.Stack import Stack
 
 
 def readfile(file):
