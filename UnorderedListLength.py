@@ -28,7 +28,7 @@ class UnorderedList:
         current = self.head.next
         previous = None
         found = False
-        while not found:
+        while not found and current != None:
             if current.data == item:
                 found = True
             else:
@@ -40,9 +40,11 @@ class UnorderedList:
         elif found == True and current.next == None:
             self.head.data = self.head.data - 1
             previous.next = None
-        else:
+        elif found == True and previous != None:
             self.head.data = self.head.data - 1
             previous.next = current.next
+        else:
+            print('%d is not found in the list' %item)
 
     def printLL(self):
         current = self.head.next
@@ -59,7 +61,7 @@ llist.add(93)
 llist.add(26)
 llist.add(54)
 
-llist.remove(17)
+llist.remove(31)
 
 llist.printLL()
 
