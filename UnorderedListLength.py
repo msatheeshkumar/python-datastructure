@@ -52,6 +52,15 @@ class UnorderedList:
             print current.data
             current = current.next
 
+    def __str__(self):
+        current = self.head.next
+        dataVal = '['
+        while current != None:
+            dataVal = dataVal+str(current.data)+','
+            current = current.next
+
+        return dataVal[:-1] + ']'
+
 
 llist = UnorderedList()
 llist.add(31)
@@ -60,10 +69,11 @@ llist.add(17)
 llist.add(93)
 llist.add(26)
 llist.add(54)
+llist.add(54)
 
-llist.remove(31)
+llist.remove(54)
 
-llist.printLL()
+# llist.printLL()
 
-print(llist.size())
+print(llist)
 
