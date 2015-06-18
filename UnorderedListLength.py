@@ -18,6 +18,7 @@ class UnorderedList:
             headNode = headNode.next
 
         headNode.next = temp
+        self.addedFirst = headNode.next
         self.head.data = self.head.data + 1
 
     def size(self):
@@ -61,6 +62,27 @@ class UnorderedList:
 
         return dataVal[:-1] + ']'
 
+    def appendBIG_O_1(self, item):
+		if self.addedFirst == None:
+			self.add(item)
+		else:
+			newNode = Node(item)
+			newNode.next = None
+			self.addedFirst.next = newNode
+			self.addedFirst = newNode
+
+    def index(self, item):
+		current = self.head
+		index = 0
+		found = False
+		while current != None and not found:
+			if current.data == item:
+				found = True
+			else:
+				current = current.next
+				index = index + 1
+		return index
+
 
 llist = UnorderedList()
 llist.add(31)
@@ -69,9 +91,17 @@ llist.add(17)
 llist.add(93)
 llist.add(26)
 llist.add(54)
-llist.add(54)
+llist.appendBIG_O_1(72)
+llist.add(100)
+llist.appendBIG_O_1(71)
+llist.add(101)
 
-llist.remove(54)
+
+print("index = %d" %llist.index(31))
+
+
+
+#llist.remove(54)
 
 # llist.printLL()
 
